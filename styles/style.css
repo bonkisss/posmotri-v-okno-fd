@@ -174,7 +174,7 @@ ol {
   position: relative;
   width: 399px;
   height: 298px;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: scroll;
 }
 
@@ -185,7 +185,7 @@ ol {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
-  border: 1px solid white;
+  border: 1px solid currentColor;
   color: white;
   background-color: transparent;
   cursor: pointer;
@@ -222,7 +222,7 @@ ol {
 
 /* СТИЛИЗАЦИЯ ШАБЛОНОВ */
 
-.content__list-item {
+.content__list-item:not(:last-child) {
   padding-bottom: 30px;
 }
 
@@ -276,8 +276,13 @@ a.content__card-link_current .content__video-card {
 
 .content__video-card-description {
   font-size: 18px;
-  line-height: 16px;
+  line-height: 1;
   letter-spacing: 0.03em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* ограничение количества строк до 4 */
+  line-clamp: 4;
+  overflow: hidden;
 }
 
 .content__video-card-thumbnail {
